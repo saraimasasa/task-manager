@@ -70,23 +70,45 @@ export default function App() {
   }
 
   function countCompletedTasks(tasks) {
-    // TODO
+     const counter = tasks.filter(task1 => task1.completed === true);
+    return counter.length;
   }
 
   function addTask(tasks, newTask) {
-    // TODO
+    const new_tasks = [...tasks, newTask]
+    return new_tasks;
   }
 
   function removeTask(tasks, id) {
-    // TODO
+    const new1 = tasks.filter(task1 => task1.id !== id);
+    return new1;
   }
 
   function toggleTaskCompleted(tasks, id) {
-    // TODO
+    const toggle = tasks.map((task) => {
+      if(task.id === id)
+        {
+        return {...task, completed:!task.completed}
+        }
+        else
+        {
+          return task;
+        }
+      })
   }
 
   function updateTaskPriority(tasks, id, newPriority) {
-    // TODO
+    const new2 = tasks.map((task) => {
+             if(task.id === id ) 
+             {
+                return {...task, priority: newPriority }
+             }
+             else
+             {
+                return task;
+            }
+    })
+    return new2;
   }
 
   // ================================================================
